@@ -1,0 +1,150 @@
+/* Principal */
+.carousel {
+  position: relative;
+  width: 100vw;
+  height: 90vh;
+  overflow: hidden;
+}
+
+
+.carousel__track {
+  display: flex;
+  height: 100%;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+/* Ocultar scrollbar */
+.carousel__track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel__track {
+  scrollbar-width: none;
+}
+
+
+.carousel__slide {
+  min-width: 100vw;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  scroll-snap-align: start;
+  cursor: pointer;
+  position: relative;
+}
+
+
+.carousel__overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 64px 48px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.2),
+    transparent
+  );
+  color: white;
+}
+
+.carousel__overlay h2 {
+  font-size: 2.6rem;
+  margin-bottom: 12px;
+}
+
+.carousel__overlay p {
+  max-width: 600px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #e0e0e0;
+}
+
+.carousel__nav {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 88px;
+  z-index: 10;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 4rem;
+  opacity: 0;
+  transition: opacity 0.3s ease, background 0.3s ease;
+}
+
+/* Mostrar flechas al hover */
+.carousel:hover .carousel__nav {
+  opacity: 1;
+}
+
+/* Izquierda */
+.carousel__nav--left {
+  left: 0;
+  background: linear-gradient(to right,rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0));
+}
+
+/* Derecha */
+.carousel__nav--right {
+  right: 0;
+  background: linear-gradient(to left,rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0));
+}
+
+/* Flecha */
+.carousel__nav span {
+  pointer-events: none;
+  transition: transform 0.2s ease;
+}
+
+/* Hover elegante */
+.carousel__nav:hover span {
+  transform: scale(1.25);
+}
+
+/* Quitar contornos */
+.carousel__nav:focus,
+.carousel__nav:active {
+  outline: none;
+  box-shadow: none;
+}
+
+/* parte responsiva */
+@media (max-width: 768px) {
+  .carousel {
+    height: 75vh;
+  }
+
+  .carousel__overlay {
+    padding: 32px 24px;
+  }
+
+  .carousel__overlay h2 {
+    font-size: 1.8rem;
+  }
+
+  .carousel__overlay p {
+    font-size: 0.9rem;
+  }
+
+  .carousel__nav {
+    width: 56px;
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel {
+    height: 65vh;
+  }
+
+  .carousel__overlay p {
+    display: none;
+  }
+}

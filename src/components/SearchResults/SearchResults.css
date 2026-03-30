@@ -1,0 +1,37 @@
+.search {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.search__header {
+  margin-bottom: 32px;
+}
+
+.search__header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #eaeaea;
+}
+
+.search__header h1 span {
+  color: #ffffff;
+}
+
+.search__header p {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: #9ca3af;
+}
+
+/* Parte Responsiva */
+@media (max-width: 768px) {
+  .search {
+    padding: 24px 16px;
+  }
+
+  .search__header h1 {
+    font-size: 1.4rem;
+  }
+}
